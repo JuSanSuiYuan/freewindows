@@ -1,0 +1,75 @@
+# 构建输出
+build/
+out/
+bin/
+lib/
+obj/
+
+# CMake 生成文件
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+compile_commands.json
+CTestTestfile.cmake
+*.cmake.in
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.sln.docstates
+*.vcxproj.user
+
+# 编译产物
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dll
+*.exe
+*.pdb
+*.ilk
+*.exp
+
+# 临时文件
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# 操作系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE 文件
+.vscode/
+.idea/
+*.sublime-*
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+
+# 测试输出
+test_results/
+coverage/
+*.gcov
+*.gcda
+*.gcno
+
+# 文档生成
+docs/_build/
+docs/.doctrees/
+
+# 补丁备份
+*.orig
+*.rej
