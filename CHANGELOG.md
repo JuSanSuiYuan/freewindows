@@ -31,6 +31,13 @@
 
 ### 新增
 
+#### Conan 包管理器
+- ✅ 选择 Conan 作为主要包管理器
+- ✅ 创建 `conanfile.py` - Conan 配方文件（Python 格式）
+- ✅ 创建 `conanfile.txt` - Conan 配方文件（文本格式）
+- ✅ 新增 `scripts/build-with-conan.ps1` - 使用 Conan 的构建脚本
+- ✅ 新增 `docs/conan-package-management.md` - Conan 使用指南
+
 #### 性能优化方案
 - ✅ 实现 CMake + Ninja + ccache 优化方案
 - ✅ 新增 `scripts/configure-optimized.ps1` - 优化配置脚本

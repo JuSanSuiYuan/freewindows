@@ -28,7 +28,7 @@ param(
     [switch]$Clean,
     
     [Parameter(Mandatory=$false)]
-    [switch]$Verbose,
+    [switch]$ShowDetails,
     
     [Parameter(Mandatory=$false)]
     [switch]$EnableLTO
@@ -68,10 +68,17 @@ foreach ($Tool in $RequiredTools) {
         $MissingTools += $Tool
         Write-Host "  ✗ $Tool 未找到" -ForegroundColor Red
     } else {
-        $Version = & $Tool --version 2>&1 | Select-Object -First 1
         Write-Host "  ✓ $Tool" -ForegroundColor Green
-        if ($Verbose) {
-            Write-Host "    $Version" -ForegroundColor Gray
+        if ($ShowDetails) {
+            # 某些工具不支持 --version，跳过版本显示
+            if ($Tool -notin @("llvm-lib", "llvm-rc", "llvm-mt")) {
+                try {
+                    $Version = & $Tool --version 2>&1 | Select-Object -First 1
+                    Write-Host "    $Version" -ForegroundColor Gray
+                } catch {
+                    # 忽略版本获取错误
+                }
+            }
         }
     }
 }
@@ -199,7 +206,7 @@ Write-Host ""
 # 运行 CMake
 Write-Host "[6/7] 运行 CMake 配置..." -ForegroundColor Yellow
 
-if ($Verbose) {
+if ($ShowDetails) {
     $CMakeArgs += "--debug-output"
 }
 

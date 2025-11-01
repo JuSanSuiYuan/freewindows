@@ -40,6 +40,12 @@ cd d:\编程项目\freeWindows
    scoop install ninja
    ```
 
+4. **Conan**（可选但推荐）：
+   ```powershell
+   choco install conan
+   # 或从 https://conan.io/downloads.html 下载安装
+   ```
+
 ---
 
 ### 步骤 2：配置 ReactOS 构建 ⏸️
@@ -76,6 +82,9 @@ cmake --build build\reactos-amd64-clang-cl --parallel
 
 # 方法 2：使用构建脚本
 .\scripts\build.ps1 -BuildDir "build\reactos-amd64-clang-cl"
+
+# 方法 3：使用 Conan 包管理器构建
+.\scripts\build-with-conan.ps1
 ```
 
 **预期结果**：

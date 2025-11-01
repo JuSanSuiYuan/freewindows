@@ -1,14 +1,12 @@
-# C24 标准使用指南
+# C23 标准使用指南
 
 ## 概述
 
-FreeWindows 项目使用 **C24**（ISO/IEC 9899:2024，草案名称 C2y）作为 C 语言标准，这是 C 语言的最新标准。
-
-**注意**：C24 标准尚未正式发布，目前使用的是草案版本（C2y）。
+FreeWindows 项目使用 **C23**（ISO/IEC 9899:2023）作为 C 语言标准，这是 C 语言的最新标准。
 
 ---
 
-## 为什么选择 C24？
+## 为什么选择 C23？
 
 ### 优势
 
@@ -42,7 +40,7 @@ ReactOS 原本使用 **C99** 标准（在 `CMakeLists.txt` 第 27 行定义）�
 set(CMAKE_C_STANDARD 99)
 ```
 
-迁移到 C24 的考虑：
+迁移到 C23 的考虑：
 
 | 方面 | C99 | C24 | 兼容性 |
 |------|-----|-----|--------|
@@ -53,9 +51,7 @@ set(CMAKE_C_STANDARD 99)
 
 ---
 
-## C24 新特性详解
-
-**注意**：以下特性基于 C23 标准，C24 标准正在制定中，可能会有新增特性。
+## C23 新特性详解
 
 ### 1. `nullptr` 关键字
 
@@ -208,8 +204,8 @@ if (ckd_add(&result, a, b)) {
 **Clang**：
 - Clang 16+ 支持大部分 C23 特性
 - Clang 18+ 完全支持 C23
-- Clang 19+ 开始支持 C24（C2y）草案特性
-- 使用 `-std=c2y` 标志（C24 草案）
+- Clang 17+ 完全支持 C23
+- 使用 `-std=c23` 标志
 
 **检查编译器版本**：
 ```powershell
@@ -218,16 +214,16 @@ clang --version
 
 ### CMake 配置
 
-FreeWindows 的工具链文件已配置 C24：
+FreeWindows 的工具链文件已配置 C23：
 
 **Clang-CL**（`cmake/toolchains/clang-cl.cmake`）：
 ```cmake
-set(CMAKE_C_FLAGS_INIT "/W4 /WX- /nologo /std:c2y")
+set(CMAKE_C_FLAGS_INIT "/W4 /WX- /nologo /std:c23")
 ```
 
 **Clang-GNU**（`cmake/toolchains/clang-gnu.cmake`）：
 ```cmake
-set(CMAKE_C_FLAGS_INIT "-Wall -Wextra -Werror=implicit-function-declaration -std=c2y")
+set(CMAKE_C_FLAGS_INIT "-Wall -Wextra -Werror=implicit-function-declaration -std=c23")
 ```
 
 ### ReactOS 兼容性注意事项
@@ -420,5 +416,5 @@ C23 的新特性对性能的影响：
 
 **文档版本**：1.1  
 **最后更新**：2025-10-25  
-**C 标准**：C24 (ISO/IEC 9899:2024 草案，C2y)  
-**C++ 标准**：C++26 (ISO/IEC 14882:2026 草案)
+**C 标准**：C23 (ISO/IEC 9899:2023)  
+**C++ 标准**：C++23 (ISO/IEC 14882:2023)

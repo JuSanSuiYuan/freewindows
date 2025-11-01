@@ -21,8 +21,8 @@ set(CMAKE_AR llvm-ar)
 set(CMAKE_RANLIB llvm-ranlib)
 
 # 编译器标志
-set(CMAKE_C_FLAGS_INIT "/W4 /WX- /nologo /std:c2y")
-set(CMAKE_CXX_FLAGS_INIT "/W4 /WX- /nologo /std:c++26 /EHsc")
+set(CMAKE_C_FLAGS_INIT "/W4 /WX- /nologo /std:c23")
+set(CMAKE_CXX_FLAGS_INIT "/W4 /WX- /nologo /std:c++23 /EHsc")
 
 # 调试标志
 set(CMAKE_C_FLAGS_DEBUG_INIT "/Od /Zi /RTC1 /MDd")

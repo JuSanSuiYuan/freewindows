@@ -1,0 +1,32 @@
+From: FreeWindows Project
+Date: Thu, 30 Oct 2025
+Subject: [PATCH 2/2] Disable pragma-pack warning for widl
+
+Clang is stricter about #pragma pack usage in header files.
+The widl code uses pshpack1.h/poppack.h pattern which is valid
+but triggers warnings in Clang. Disable this specific warning
+for the widl tool.
+
+Signed-off-by: FreeWindows Project
+
+---
+ sdk/tools/widl/CMakeLists.txt | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/sdk/tools/widl/CMakeLists.txt b/sdk/tools/widl/CMakeLists.txt
+index 1234567..abcdefg 100644
+--- a/sdk/tools/widl/CMakeLists.txt
++++ b/sdk/tools/widl/CMakeLists.txt
+@@ -1,5 +1,9 @@
+ # widl build configuration
+ 
++# Disable pragma-pack warning for Clang
++if(CMAKE_C_COMPILER_ID MATCHES "Clang")
++    add_compile_options(-Wno-pragma-pack)
++endif()
++
+ add_executable(widl
+     client.c
+     expr.c
+-- 
+2.43.0

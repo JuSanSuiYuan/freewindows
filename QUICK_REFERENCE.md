@@ -66,6 +66,9 @@ cd d:\编程项目\freeWindows
 # 优化构建
 .\scripts\configure-optimized.ps1 -EnableCCache
 .\scripts\build-optimized.ps1 -ShowStats
+
+# 使用 Conan 构建
+.\scripts\build-with-conan.ps1
 ```
 
 ## 📊 项目统计
@@ -105,7 +108,8 @@ cd d:\编程项目\freeWindows
 - **用户态**: ReactOS + Wine API 实现
 - **编译器**: LLVM/Clang
 - **构建系统**: CMake (主要) + autotools (Wine)
-- **标准**: C23, C++26
+- **包管理器**: Conan
+- **标准**: C23, C++23
 
 ## 📝 许可证
 

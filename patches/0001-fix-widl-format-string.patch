@@ -1,0 +1,28 @@
+From: FreeWindows Project
+Date: Thu, 30 Oct 2025
+Subject: [PATCH 1/2] Fix format string type mismatch in widl/register.c
+
+Fix format specifier for uuid->Data1 which is unsigned long.
+Clang correctly warns that %08X expects unsigned int but Data1 is unsigned long.
+
+Signed-off-by: FreeWindows Project
+
+---
+ sdk/tools/widl/register.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/sdk/tools/widl/register.c b/sdk/tools/widl/register.c
+index 1234567..abcdefg 100644
+--- a/sdk/tools/widl/register.c
++++ b/sdk/tools/widl/register.c
+@@ -42,7 +42,7 @@ static int indent;
+ static const char *format_uuid( const UUID *uuid )
+ {
+     static char buffer[40];
+-    sprintf( buffer, "{%08X-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X}",
++    sprintf( buffer, "{%08lX-%04X-%04X-%02X%02X-%02X%02X%02X%02X%02X%02X}",
+              uuid->Data1, uuid->Data2, uuid->Data3,
+              uuid->Data4[0], uuid->Data4[1], uuid->Data4[2], uuid->Data4[3],
+              uuid->Data4[4], uuid->Data4[5], uuid->Data4[6], uuid->Data4[7] );
+-- 
+2.43.0

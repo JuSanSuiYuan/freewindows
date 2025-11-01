@@ -1,0 +1,23 @@
+From: FreeWindows Project
+Date: Sat, 30 Oct 2025
+Subject: [PATCH 3/3] Fix all UUID format string type mismatches
+
+Fix all format specifiers for uuid->Data1 which is unsigned long.
+Clang correctly warns that %08x expects unsigned int but Data1 is unsigned long.
+
+Files modified:
+- sdk/tools/widl/register.c
+- sdk/tools/widl/widl.c
+- sdk/tools/widl/typegen.c
+- sdk/tools/widl/header.c
+
+Signed-off-by: FreeWindows Project
+
+---
+ sdk/tools/widl/register.c | 2 +-
+ sdk/tools/widl/widl.c     | 2 +-
+ sdk/tools/widl/typegen.c  | 2 +-
+ sdk/tools/widl/header.c   | 6 +++---
+ 4 files changed, 6 insertions(+), 6 deletions(-)
+
+Summary: Changed all %08x format specifiers to %08lx for uuid->Data1

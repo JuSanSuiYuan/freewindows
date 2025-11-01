@@ -2,15 +2,13 @@
 
 ## 语言标准
 
-### C 语言标准：C24
+### C 语言标准：C23
 
-FreeWindows 项目使用 **C24**（ISO/IEC 9899:2024 草案，代号 C2y）作为 C 语言标准。
-
-**注意**：C24 标准尚未正式发布，目前使用的是草案版本。
+FreeWindows 项目使用 **C23**（ISO/IEC 9899:2023）作为 C 语言标准。
 
 **工具链配置**：
-- Clang-CL：`/std:c2y`
-- Clang-GNU：`-std=c2y`
+- Clang-CL：`/std:c23`
+- Clang-GNU：`-std=c23`
 
 **原因**：
 - ✅ 现代化特性（`nullptr`、`typeof`、`constexpr`）
@@ -22,15 +20,13 @@ FreeWindows 项目使用 **C24**（ISO/IEC 9899:2024 草案，代号 C2y）作�
 
 ---
 
-### C++ 语言标准：C++26
+### C++ 语言标准：C++23
 
-FreeWindows 项目使用 **C++26**（ISO/IEC 14882:2026 草案）作为 C++ 语言标准。
-
-**注意**：C++26 标准尚未正式发布，目前使用的是草案版本。
+FreeWindows 项目使用 **C++23**（ISO/IEC 14882:2023）作为 C++ 语言标准。
 
 **工具链配置**：
-- Clang-CL：`/std:c++26`
-- Clang-GNU：`-std=c++26`
+- Clang-CL：`/std:c++23`
+- Clang-GNU：`-std=c++23`
 
 **原因**：
 - ✅ 概念（Concepts）
@@ -168,14 +164,14 @@ void *ptr = nullptr;
 
 ### 阶段 3：全面采用（长期）
 
-**目标**：充分利用 C24 特性
+**目标**：充分利用 C23 特性
 
 **策略**：
 - ⏸️ 使用 `constexpr` 替代宏
 - ⏸️ 使用属性标记 API
 - ⏸️ 使用新标准库函数
 - ⏸️ 优化性能
-- ⏸️ 探索 C24 新增特性（待标准发布）
+- ⏸️ 探索 C23 新增特性
 
 ---
 
@@ -242,7 +238,7 @@ bool safe_add(int a, int b, int *result) {
 | `-std=c17` | C17 标准 | ✅ |
 | `-std=c2x` | C23 标准（草案名称） | ✅ |
 | `-std=c23` | C23 标准（正式名称） | ✅ Clang 18+ |
-| `-std=c2y` | C24 标准（草案名称） | ✅ Clang 19+ |
+| `-std=c23` | C23 标准 | ✅ Clang 17+ |
 
 ### C++ 标准标志
 
@@ -253,7 +249,7 @@ bool safe_add(int a, int b, int *result) {
 | `-std=c++17` | C++17 标准 | ✅ |
 | `-std=c++20` | C++20 标准 | ✅ |
 | `-std=c++23` | C++23 标准 | ✅ Clang 17+ |
-| `-std=c++26` | C++26 标准（草案） | ✅ Clang 19+ |
+| `-std=c++23` | C++23 标准 | ✅ Clang 17+ |
 
 ---
 
@@ -279,16 +275,15 @@ bool safe_add(int a, int b, int *result) {
 
 ## 总结
 
-✅ **FreeWindows 使用 C24 和 C++26 标准（草案）**  
+✅ **FreeWindows 使用 C23 和 C++23 标准**  
 ✅ **向后兼容 ReactOS 的 C99/C++11 代码**  
 ✅ **可选择性使用新特性**  
 ✅ **推荐渐进式采用**  
-✅ **Clang 19+ 支持草案特性**  
-⚠️ **注意：C24 和 C++26 尚未正式发布**
+✅ **Clang 17+ 支持这些标准**
 
 ---
 
 **文档版本**：1.1  
 **最后更新**：2025-10-25  
-**C 标准**：C24 (ISO/IEC 9899:2024 草案，C2y)  
-**C++ 标准**：C++26 (ISO/IEC 14882:2026 草案)
+**C 标准**：C23 (ISO/IEC 9899:2023)  
+**C++ 标准**：C++23 (ISO/IEC 14882:2023)

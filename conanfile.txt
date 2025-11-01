@@ -1,0 +1,14 @@
+[requires]
+# 在这里添加项目需要的依赖包
+# 例如:
+# zlib/1.2.11
+# openssl/1.1.1k
+
+[generators]
+CMakeDeps
+CMakeToolchain
+
+[options]
+# 在这里添加特定选项
+# 例如:
+# zlib:shared=False

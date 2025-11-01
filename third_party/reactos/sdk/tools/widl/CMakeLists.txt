@@ -39,6 +39,11 @@ add_definitions(-DINT16=SHORT -DLANG_SCOTTISH_GAELIC=0x91)
 add_host_tool(widl ${SOURCE})
 target_link_libraries(widl PRIVATE host_includes wpphost)
 
+# Disable pragma-pack warning for Clang (FreeWindows patch)
+if(CMAKE_C_COMPILER_ID MATCHES "Clang")
+    target_compile_options(widl PRIVATE "-Wno-pragma-pack")
+endif()
+
 if(MSVC)
     # Disable warning "'>': signed/unsigned mismatch"
     target_compile_options(widl PRIVATE "/wd4018")

@@ -1,6 +1,6 @@
 # 标准更新通知
 
-## C24 和 C++26 标准更新
+## C23 和 C++23 标准更新
 
 **日期**：2025-10-25  
 **版本**：1.1
@@ -9,33 +9,33 @@
 
 ## 更新内容
 
-### C 语言标准：C99 → C24
+### C 语言标准：C99 → C23
 
 - **旧标准**：C99（ISO/IEC 9899:1999）
-- **新标准**：C24（ISO/IEC 9899:2024 草案，代号 C2y）
-- **工具链标志**：`-std=c2y` 或 `/std:c2y`
+- **新标准**：C23（ISO/IEC 9899:2023）
+- **工具链标志**：`-std=c23` 或 `/std:c23`
 
-### C++ 语言标准：C++17 → C++26
+### C++ 语言标准：C++17 → C++23
 
 - **旧标准**：C++17（ISO/IEC 14882:2017）
-- **新标准**：C++26（ISO/IEC 14882:2026 草案）
-- **工具链标志**：`-std=c++26` 或 `/std:c++26`
+- **新标准**：C++23（ISO/IEC 14882:2023）
+- **工具链标志**：`-std=c++23` 或 `/std:c++23`
 
 ---
 
 ## 重要说明
 
-### ⚠️ 草案版本
+### ⚠️ 标准版本
 
-**C24 和 C++26 尚未正式发布**，目前使用的是草案版本：
+**C23 和 C++23 已正式发布**：
 
-- **C24**：使用草案名称 `c2y`（C2y = C 标准的下一个版本）
-- **C++26**：使用草案名称 `c++26`
+- **C23**：ISO/IEC 9899:2023
+- **C++23**：ISO/IEC 14882:2023
 
 **影响**：
-- 标准可能会有变化
-- 某些特性可能不稳定
-- 编译器支持可能不完整
+- 标准已稳定
+- 特性已确定
+- 编译器支持完整
 
 **建议**：
 - 开发环境可以使用草案版本
@@ -74,8 +74,8 @@ clang --version
    set(CMAKE_CXX_FLAGS_INIT "/W4 /WX- /nologo /std:c++20 /EHsc")
    
    # 新配置
-   set(CMAKE_C_FLAGS_INIT "/W4 /WX- /nologo /std:c2y")
-   set(CMAKE_CXX_FLAGS_INIT "/W4 /WX- /nologo /std:c++26 /EHsc")
+   set(CMAKE_C_FLAGS_INIT "/W4 /WX- /nologo /std:c23")
+   set(CMAKE_CXX_FLAGS_INIT "/W4 /WX- /nologo /std:c++23 /EHsc")
    ```
 
 2. **`cmake/toolchains/clang-gnu.cmake`**
@@ -85,8 +85,8 @@ clang --version
    set(CMAKE_CXX_FLAGS_INIT "-Wall -Wextra -std=c++20 -fno-exceptions -fno-rtti")
    
    # 新配置
-   set(CMAKE_C_FLAGS_INIT "-Wall -Wextra -Werror=implicit-function-declaration -std=c2y")
-   set(CMAKE_CXX_FLAGS_INIT "-Wall -Wextra -std=c++26 -fno-exceptions -fno-rtti")
+   set(CMAKE_C_FLAGS_INIT "-Wall -Wextra -Werror=implicit-function-declaration -std=c23")
+   set(CMAKE_CXX_FLAGS_INIT "-Wall -Wextra -std=c++23 -fno-exceptions -fno-rtti")
    ```
 
 ---
@@ -115,9 +115,9 @@ clang --version
 
 ---
 
-## 新特性（C24）
+## 新特性（C23）
 
-### 继承自 C23 的特性
+### C23 的特性
 
 1. **`nullptr` 关键字**
    ```c
@@ -145,17 +145,17 @@ clang --version
    constexpr int BUFFER_SIZE = 1024;
    ```
 
-### C24 新增特性（待定）
+### C23 特性
 
-C24 标准正在制定中，可能会有新增特性。请关注：
+C23 标准已正式发布，包含以下特性：
 - [C 标准委员会](https://www.open-std.org/jtc1/sc22/wg14/)
 - [Clang C 支持状态](https://clang.llvm.org/c_status.html)
 
 ---
 
-## 新特性（C++26）
+## 新特性（C++23）
 
-### 继承自 C++20/C++23 的特性
+### C++23 的特性
 
 1. **概念（Concepts）**
    ```cpp
@@ -184,9 +184,9 @@ C24 标准正在制定中，可能会有新增特性。请关注：
    auto even = vec | std::views::filter([](int n) { return n % 2 == 0; });
    ```
 
-### C++26 新增特性（待定）
+### C++23 特性
 
-C++26 标准正在制定中，可能会有新增特性。请关注：
+C++23 标准已正式发布，包含以下特性：
 - [C++ 标准委员会](https://isocpp.org/)
 - [Clang C++ 支持状态](https://clang.llvm.org/cxx_status.html)
 
@@ -253,7 +253,7 @@ clang++ -std=c++26 -E -dM - < /dev/null | Select-String "__cplusplus"
 
 ---
 
-### Q3：如何回退到 C23/C++20？
+### Q3：如何回退到 C20/C++20？
 
 **A**：修改工具链文件：
 
@@ -290,15 +290,14 @@ set(CMAKE_CXX_FLAGS_INIT "/W4 /WX- /nologo /std:c++20 /EHsc")
 
 ## 总结
 
-✅ **C 标准**：C99 → C24（草案，c2y）  
-✅ **C++ 标准**：C++17 → C++26（草案）  
+✅ **C 标准**：C99 → C23  
+✅ **C++ 标准**：C++17 → C++23  
 ✅ **向后兼容**：所有现有代码仍然可以编译  
-✅ **新特性**：可选使用  
-⚠️ **注意**：草案版本，可能会有变化
+✅ **新特性**：可选使用
 
 ---
 
 **文档版本**：1.0  
 **最后更新**：2025-10-25  
-**C 标准**：C24 (ISO/IEC 9899:2024 草案，C2y)  
-**C++ 标准**：C++26 (ISO/IEC 14882:2026 草案)
+**C 标准**：C23 (ISO/IEC 9899:2023)  
+**C++ 标准**：C++23 (ISO/IEC 14882:2023)

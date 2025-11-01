@@ -20,8 +20,8 @@ set(CMAKE_AR llvm-ar)
 set(CMAKE_RANLIB llvm-ranlib)
 
 # 编译器标志
-set(CMAKE_C_FLAGS_INIT "-Wall -Wextra -Werror=implicit-function-declaration -std=c2y")
-set(CMAKE_CXX_FLAGS_INIT "-Wall -Wextra -std=c++26 -fno-exceptions -fno-rtti")
+set(CMAKE_C_FLAGS_INIT "-Wall -Wextra -Werror=implicit-function-declaration -std=c23")
+set(CMAKE_CXX_FLAGS_INIT "-Wall -Wextra -std=c++23 -fno-exceptions -fno-rtti")
 
 # 调试标志
 set(CMAKE_C_FLAGS_DEBUG_INIT "-g -O0")

@@ -14,7 +14,7 @@
 - **不修改 ReactOS 源代码**：所有修改、补丁、构建脚本都放在 `freeWindows/` 目录中
 - **保持兼容性**：确保迁移后的系统功能与原 ReactOS 保持一致
 - **渐进式迁移**：分阶段完成从 GCC/MSVC 到 LLVM 的迁移
-- **使用现代标准**：采用 C24（草案）和 C++26（草案）标准，同时保持向后兼容
+- **使用现代标准**：采用 C23 和 C++23 标准，同时保持向后兼容
 
 ## 目录结构
 
@@ -44,6 +44,15 @@ choco install cmake ninja llvm ccache
 
 # 快速构建
 .\scripts\build-optimized.ps1 -ShowStats
+```
+
+### 使用 Conan 包管理器构建
+```powershell
+# 安装 Conan
+# 从 https://conan.io/downloads.html 下载并安装
+
+# 使用 Conan 构建
+.\scripts\build-with-conan.ps1
 ```
 
 详见 [docs/quick-start-optimized.md](docs/quick-start-optimized.md)
